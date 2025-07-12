@@ -14,7 +14,10 @@ export default function Login() {
         email,
         password,
       });
-      // localStorage.setItem("token", res.data.token);
+
+      // ✅ Store the JWT token
+      localStorage.setItem("token", res.data.token);
+
       alert("Login successful");
       navigate("/dashboard");
     } catch (err) {
