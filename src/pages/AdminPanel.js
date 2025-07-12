@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles.css";
-
+import Header from "./Header";
+import Footer from "./Footer";
 export default function AdminPanel() {
   const [allItems, setAllItems] = useState([]);
 
@@ -42,48 +43,55 @@ export default function AdminPanel() {
   };
 
   return (
-    <div className="dashboard-container">
-      <h2 className="dashboard-heading">Admin Panel</h2>
-      <div className="dashboard-item-list">
-        {allItems.map((item) => (
-          <div key={item._id} className="dashboard-item-card">
-            <img
-              src={item.images[0]}
-              alt={item.title}
-              className="dashboard-item-image"
-            />
-            <div className="dashboard-item-details">
-              <h3>{item.title}</h3>
-              <p>
-                <strong>Description:</strong> {item.description}
-              </p>
-              <p>
-                <strong>Category:</strong> {item.category}
-              </p>
-              <p>
-                <strong>Size:</strong> {item.size}
-              </p>
-              <p>
-                <strong>Condition:</strong> {item.condition}
-              </p>
-              <p>
-                <strong>Status:</strong> {item.status}
-              </p>
-              <div className="admin-actions">
-                <button
-                  className="btn-approve"
-                  onClick={() => approve(item._id)}
-                >
-                  Approve
-                </button>
-                <button className="btn-reject" onClick={() => reject(item._id)}>
-                  Reject
-                </button>
+    <div>
+      <Header />
+      <div className="dashboard-container">
+        <h2 className="dashboard-heading">Admin Panel</h2>
+        <div className="dashboard-item-list">
+          {allItems.map((item) => (
+            <div key={item._id} className="dashboard-item-card">
+              <img
+                src={item.images[0]}
+                alt={item.title}
+                className="dashboard-item-image"
+              />
+              <div className="dashboard-item-details">
+                <h3>{item.title}</h3>
+                <p>
+                  <strong>Description:</strong> {item.description}
+                </p>
+                <p>
+                  <strong>Category:</strong> {item.category}
+                </p>
+                <p>
+                  <strong>Size:</strong> {item.size}
+                </p>
+                <p>
+                  <strong>Condition:</strong> {item.condition}
+                </p>
+                <p>
+                  <strong>Status:</strong> {item.status}
+                </p>
+                <div className="admin-actions">
+                  <button
+                    className="btn-approve"
+                    onClick={() => approve(item._id)}
+                  >
+                    Approve
+                  </button>
+                  <button
+                    className="btn-reject"
+                    onClick={() => reject(item._id)}
+                  >
+                    Reject
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

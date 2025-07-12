@@ -4,18 +4,37 @@ body {
   margin: 0;
   padding: 0;
 }
-
+.dashboard-container {
+  background-image: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+.hello {
+  background-image: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
-
+.dashboard-heading {
+  color: white;
+}
 h2,
 h3 {
-  color: #333;
+  color: #fff;
 }
-
+.hai {
+  color: #000;
+}
 input,
 textarea,
 button {
@@ -75,4 +94,94 @@ button:hover {
 
 .link-button:hover {
   text-decoration: underline;
+}
+
+/* client/src/components/Header.css */
+.app-header {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00e676;
+}
+
+.app-header nav {
+  display: flex;
+  gap: 1.5rem;
+}
+.imagesaa {
+  height: 100px;
+  width: 100px;
+}
+.app-header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+}
+
+.app-header nav a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #00e676;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.app-header nav a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-header nav {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .app-header nav a {
+    margin-bottom: 0.5rem;
+  }
+}
+/* client/src/components/Footer.css */
+.app-footer {
+  background-color: #1a1a1a;
+  color: #cccccc;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  border-top: 1px solid #333;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.app-footer p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .app-footer {
+    font-size: 0.85rem;
+  }
 }

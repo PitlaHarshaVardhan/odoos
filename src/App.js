@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Header from "./pages/Header";
+import Footer from "./pages/Footer";
 import Landing from "./pages/Landing";
 import AddItem from "./pages/AddItem";
 import Dashboard from "./pages/Dashboard";
@@ -36,8 +38,8 @@ function RedirectHome() {
 export default function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<RedirectHome />} />
+      <Routes className="hello">
+        <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route

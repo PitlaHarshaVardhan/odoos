@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function AddItem() {
   const [form, setForm] = useState({
@@ -33,38 +35,42 @@ export default function AddItem() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Add New Item</h2>
-      <input
-        placeholder="Title"
-        onChange={(e) => setForm({ ...form, title: e.target.value })}
-      />
-      <input
-        placeholder="Description"
-        onChange={(e) => setForm({ ...form, description: e.target.value })}
-      />
-      <input
-        placeholder="Category"
-        onChange={(e) => setForm({ ...form, category: e.target.value })}
-      />
-      <input
-        placeholder="Size"
-        onChange={(e) => setForm({ ...form, size: e.target.value })}
-      />
-      <input
-        placeholder="Condition"
-        onChange={(e) => setForm({ ...form, condition: e.target.value })}
-      />
-      <input
-        placeholder="Tags (comma-separated)"
-        onChange={(e) => setForm({ ...form, tags: e.target.value })}
-      />
-      <input
-        type="file"
-        multiple
-        onChange={(e) => setImages([...e.target.files])}
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <Header />
+      <form onSubmit={handleSubmit}>
+        <h2>Add New Item</h2>
+        <input
+          placeholder="Title"
+          onChange={(e) => setForm({ ...form, title: e.target.value })}
+        />
+        <input
+          placeholder="Description"
+          onChange={(e) => setForm({ ...form, description: e.target.value })}
+        />
+        <input
+          placeholder="Category"
+          onChange={(e) => setForm({ ...form, category: e.target.value })}
+        />
+        <input
+          placeholder="Size"
+          onChange={(e) => setForm({ ...form, size: e.target.value })}
+        />
+        <input
+          placeholder="Condition"
+          onChange={(e) => setForm({ ...form, condition: e.target.value })}
+        />
+        <input
+          placeholder="Tags (comma-separated)"
+          onChange={(e) => setForm({ ...form, tags: e.target.value })}
+        />
+        <input
+          type="file"
+          multiple
+          onChange={(e) => setImages([...e.target.files])}
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <Footer />
+    </div>
   );
 }

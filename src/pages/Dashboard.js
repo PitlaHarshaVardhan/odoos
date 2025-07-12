@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles.css";
-
+import Header from "./Header";
+import Footer from "./Footer";
 export default function Dashboard() {
   const [items, setItems] = useState([]);
   const [user, setUser] = useState({ email: "", points: 0 });
@@ -36,52 +37,57 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="dashboard-container">
-      <h2 className="dashboard-heading">User Dashboard</h2>
-      <div className="user-card">
-        <p>
-          <strong>Email:</strong> {user.email}
-        </p>
-        <p>
-          <strong>Points:</strong> {user.points}
-        </p>
-      </div>
-      <h3 className="dashboard-subheading">Your Items</h3>
-      <div className="dashboard-item-list">
-        {items.map((item) => (
-          <div key={item._id} className="dashboard-item-card">
-            <img
-              src={item.images[0]}
-              alt={item.title}
-              className="dashboard-item-image"
-            />
-            <div className="dashboard-item-details">
-              <h3>{item.title}</h3>
-              <p>
-                <strong>Description:</strong> {item.description}
-              </p>
-              <p>
-                <strong>Category:</strong> {item.category}
-              </p>
-              <p>
-                <strong>Size:</strong> {item.size}
-              </p>
-              <p>
-                <strong>Condition:</strong> {item.condition}
-              </p>
-              <p>
-                <strong>Status:</strong> {item.status}
-              </p>
-              <button
-                className="btn-delete"
-                onClick={() => deleteItem(item._id)}
-              >
-                Delete
-              </button>
+    <div>
+      <Header />
+      <div className="dashboard-container">
+        <h2 className="dashboard-heading">User Dashboard</h2>
+        <div className="user-card">
+          <p className="hai">
+            <strong>Email:</strong> p*****@gmail.com
+          </p>
+          <p className="hai">
+            <strong>Points:</strong> 100* free credits
+          </p>
+        </div>
+
+        <h3 className="dashboard-subheading">Your Items</h3>
+        <div className="dashboard-item-list">
+          {items.map((item) => (
+            <div key={item._id} className="dashboard-item-card">
+              <img
+                src={item.images[0]}
+                alt={item.title}
+                className="dashboard-item-image"
+              />
+              <div className="dashboard-item-details">
+                <h3>{item.title}</h3>
+                <p>
+                  <strong>Description:</strong> {item.description}
+                </p>
+                <p>
+                  <strong>Category:</strong> {item.category}
+                </p>
+                <p>
+                  <strong>Size:</strong> {item.size}
+                </p>
+                <p>
+                  <strong>Condition:</strong> {item.condition}
+                </p>
+                <p>
+                  <strong>Status:</strong> {item.status}
+                </p>
+                <button
+                  className="btn-delete"
+                  onClick={() => deleteItem(item._id)}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

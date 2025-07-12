@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import Header from "./Header";
+import Footer from "./Footer";
 export default function Landing() {
   const [items, setItems] = useState([]);
 
@@ -14,22 +15,26 @@ export default function Landing() {
 
   return (
     <div>
-      <h1>Welcome to ReWear</h1>
-      <Link to="/add-item">List an Item</Link> |{" "}
-      <Link to="/dashboard">Dashboard</Link>
-      <h2>Featured Items</h2>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {items.map((item) => (
-          <Link
-            to={`/item/${item._id}`}
-            key={item._id}
-            style={{ margin: "10px" }}
-          >
-            <img src={item.images[0]} alt={item.title} width="150" />
-            <p>{item.title}</p>
-          </Link>
-        ))}
+      <Header />
+      <div>
+        <h1>Welcome to ReWear</h1>
+        <Link to="/add-item">List an Item</Link> |{" "}
+        <Link to="/dashboard">Dashboard</Link>
+        <h2>Featured Items</h2>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {items.map((item) => (
+            <Link
+              to={`/item/${item._id}`}
+              key={item._id}
+              style={{ margin: "10px" }}
+            >
+              <img src={item.images[0]} alt={item.title} width="150" />
+              <p>{item.title}</p>
+            </Link>
+          ))}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }
